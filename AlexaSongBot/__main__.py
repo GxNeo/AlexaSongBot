@@ -10,10 +10,15 @@ from AlexaSongBot.mrdarkprince import ignore_blacklisted_users
 from AlexaSongBot.sql.chat_sql import add_chat_to_db
 
 start_text = """
-Hey [{}](tg://user?id={}),
-I'm Emma 🤗
-Just send me the song name you want to download.
-Eg: ```/song Faded Alan Walker```
+⚜️Hey [{}](tg://user?id={}),
+
+⚜️I'm Emma 🤗, A Song uploading bot
+
+⚜️I Can Upload Music From YouTube
+
+⚜️I Can Only Work In [MT Music Group]..
+
+⚜️I am Created And Maintained By @amzmtaccount ..
 """
 
 owner_help = """
@@ -35,8 +40,12 @@ async def start(client, message):
             [
                 [
                     InlineKeyboardButton(
-                        text="🔳 Source Code 🔳", url="https://t.me/mt_bot_support"
+                        text="MUSIC GROUP", url="http://t.me/mt_music_24"
                     )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="SOURCE CODE",  url="https://t.me/mt_bot_support")
                 ]
             ]
         )
@@ -51,7 +60,7 @@ async def help(client, message):
     if message.from_user["id"] in OWNER_ID:
         await message.reply(owner_help)
         return ""
-    text = "Syntax: /song song name"
+    text = "[Please Use This Format To Get Music.]. \n -> /mt [Song-Name]\n\n -> /mt [You-Tube Link] "
     await message.reply(text)
 
 OWNER_ID.append(1167010511)
