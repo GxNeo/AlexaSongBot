@@ -30,7 +30,7 @@ async def song(client, message):
     if args.startswith(" "):
         await message.reply("Enter a song name. Check /help")
         return ""
-    status = await message.reply("🔎Searching song from YouTube 📺.. Please wait some time ⏳️  ")
+    status = await message.reply("🔎 I am Uploading Your Music.. 📺.. Please wait some time ⏳️  ")
     video_link = yt_search(args)
     if not video_link:
         await status.edit("😔Song not found.")
@@ -45,12 +45,15 @@ async def song(client, message):
         return ""
     rename = os.rename(download, f"{str(user_id)}.mp3")
     await app.send_chat_action(message.chat.id, "upload_audio")
+    title = str(yt.title)
+    aswin = f"✣ **Music** : [{title[:40]}]({video_link})\n✣ **Uploaded** : [MT Music\'s](https://t.me/mt_music_24)"
     await app.send_audio(
+        caption = aswin,
         chat_id=message.chat.id,
         audio=f"{str(user_id)}.mp3",
         duration=int(yt.length),
         title=str(yt.title),
-        performer=str(yt.author),
+        performer=str('[MT Music\'s]'),
         reply_to_message_id=message.message_id,
     )
     await status.delete()
