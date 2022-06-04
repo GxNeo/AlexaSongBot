@@ -36,7 +36,7 @@ async def start(client, message):
   n=await m.edit("▰▰▱▱")
   o=await n.edit("▰▰▰▱")
   p=await o.edit("▰▰▰▰")
-  await p.edit(text=Config.START_MSG.format(message.from_user.mention),
+  await p.edit(text="ʜᴇʟʟᴏ {},/n/nɪnɪnɴ ᴀᴍ sᴘᴇᴄɪᴀʟ ᴍᴜsɪᴄ ʙᴏᴛ ғᴏʀ ᴍᴜsɪᴄ ᴘᴀɴᴅᴀ ɢʀᴏᴜᴘ".format(message.from_user.mention),
     disable_web_page_preview=True,
     reply_markup=InlineKeyboardMarkup(
       [[
