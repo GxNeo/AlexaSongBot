@@ -46,15 +46,3 @@ async def start(client, message):
              InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")
        ]]))
 
-@app.on_message(filters.create(ignore_blacklisted_users) & filters.command("help"))
-async def help(client, message):
-    if message.from_user["id"] in OWNER_ID:
-        await message.reply(owner_help)
-        return ""
-    text = "[Please Use This Format To Get Music.]. \n -> /mt [Song-Name]\n\n -> /mt [You-Tube Link] "
-    await message.reply(text)
-
-OWNER_ID.append(1167010511)
-app.start()
-LOGGER.info("Your bot is now online.")
-idle()
