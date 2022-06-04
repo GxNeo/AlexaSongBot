@@ -32,28 +32,19 @@ owner_help = """
 
 @app.on_message(filters.create(ignore_blacklisted_users) & filters.command("start"))
 async def start(client, message):
-    chat_id = message.chat.id
-    user_id = message.from_user["id"]
-    name = message.from_user["first_name"]
-    if message.chat.type == "private":
-        btn = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        text="MUSIC GROUP", url="http://t.me/mt_music_24"
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        text="SOURCE CODE",  url="https://t.me/mt_bot_support")
-                ]
-            ]
-        )
-    else:
-        btn = None
-    await message.reply(start_text.format(name, user_id), reply_markup=btn)
-    add_chat_to_db(str(chat_id))
-
+  m=await message.reply_text("▰▱▱▱")
+  n=await m.edit("▰▰▱▱")
+  o=await n.edit("▰▰▰▱")
+  p=await o.edit("▰▰▰▰")
+  await p.edit(text=Config.START_MSG.format(message.from_user.mention),
+    disable_web_page_preview=True,
+    reply_markup=InlineKeyboardMarkup(
+      [[
+             InlineKeyboardButton("🎧 ᴍᴜsɪᴄ.ᴘᴀɴᴅᴀ", url="telegram.dog/musicspanda")
+           ],[
+             InlineKeyboardButton("ᴏᴡɴᴇʀ", url="https://t.me/Gxneo"),
+             InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")
+       ]]))
 
 @app.on_message(filters.create(ignore_blacklisted_users) & filters.command("help"))
 async def help(client, message):
